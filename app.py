@@ -91,7 +91,7 @@ def page_file_viewer():
         st.write("no files available.")
 
 def page_search_summary():
-    st.title("discover")
+    st.title("discover something new")
     
     # Input query from the user
     query = st.text_input("enter your search query:")
@@ -103,7 +103,7 @@ def page_search_summary():
     )
 
     # Button to start the search
-    if st.button("research"):
+    if st.button("look up"):
         if query:
             with st.spinner("scraping the web for information..."):
                 search_results = scrape_web(query)
@@ -137,11 +137,11 @@ def page_search_summary():
 
 def main():
     st.sidebar.title("brain bytes")
-    page = st.sidebar.radio("pages", ["discover", "in the past"])
+    page = st.sidebar.radio("pages", ["discover something new", "previous discoveries"])
 
-    if page == "discover":
+    if page == "discover something new":
         page_search_summary()
-    elif page == "in the past":
+    elif page == "previous discoveries":
         page_file_viewer()
 
 if __name__ == "__main__":
