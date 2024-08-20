@@ -4,8 +4,8 @@ from openai import OpenAI
 import os
 
 # Initialize Tavily and Ollama (make sure to configure your API keys if needed)
-tavily_client = TavilyClient(api_key="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")
-openai_client = OpenAI(api_key="sk-OgZQcmq1KSAG1uI62aBMSJBALGUCtsTFj1dMbMziBTT3BlbkFJcEYqSmu0A7sCR9A3NxxocsI5shlbkYBr8i_o18FfMA")
+tavily_client = TavilyClient(api_key=st.secrets["openai"])
+openai_client = OpenAI(api_key=st.secrets["tavily"])
 
 st.set_page_config(page_title="brain bytes", layout="wide")
 
