@@ -57,6 +57,7 @@ def summarize_with_openai(text, level):
     prompt = level_prompts.get(level, level_prompts['very young child'])  # Default to 'very young child' if level not found
     prompt += f"""\n\n
                 Instruction: Put the summary in a markdown format with headings, subheadings, and bullet points.
+                If the summary includes the code block markers, remove them.
             
                 Text to summarize:
                 {text}
