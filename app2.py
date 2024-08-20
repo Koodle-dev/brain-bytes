@@ -55,7 +55,14 @@ def summarize_with_openai(text, level):
     }
 
     prompt = level_prompts.get(level, level_prompts['very young child'])  # Default to 'very young child' if level not found
-    prompt += f"\n\nOnly return the information in markdown format. Do not structure the data any other way. Put the summary in a markdown format with headings, subheadings, and bullet points. Here's the text to summarize:\n\n{text}\n\n"
+    prompt += f"""\n\n
+                Instruction: Summarize the following text and format the summary exclusively in Markdown. 
+                Use headings, subheadings, and bullet points where appropriate. 
+                Do not return any additional text outside of the Markdown format.
+            
+                Text to summarize:
+                {text}
+            """
 
     try:
         response = openai_client.chat.completions.create(
